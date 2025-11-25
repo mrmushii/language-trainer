@@ -100,7 +100,7 @@ export const mappings = {
 export const interviewer: CreateAssistantDTO = {
   name: "Interviewer",
   firstMessage:
-    "Hello! Thank you for taking the time to speak with me today. I'm excited to learn more about you and your experience.",
+    "Hello! Thank you for taking the time to speak with me today. I'm excited to have a nice conversation with you and know about each other.",
   transcriber: {
     provider: "deepgram",
     model: "nova-2",
@@ -121,9 +121,15 @@ export const interviewer: CreateAssistantDTO = {
     messages: [
       {
         role: "system",
-        content: `You are a professional job interviewer conducting a real-time voice interview with a candidate. Your goal is to assess their qualifications, motivation, and fit for the role.
+        content: `
+        You are an AI conversation partner helping a user practice {{type}}.  
+       
+        Respond naturally and encourage further conversation.  
+        Keep responses at an appropriate difficulty level based on the user's speaking skills.
 
-Interview Guidelines:
+        
+
+Conversation Guidelines:
 Follow the structured question flow:
 {{questions}}
 
@@ -134,16 +140,24 @@ Keep the conversation flowing smoothly while maintaining control.
 Be professional, yet warm and welcoming:
 
 Use official yet friendly language.
-Keep responses concise and to the point (like in a real voice interview).
+Keep responses concise and to the point (like in a real voice conversation).
 Avoid robotic phrasing—sound natural and conversational.
-Answer the candidate’s questions professionally:
 
-If asked about the role, company, or expectations, provide a clear and relevant answer.
-If unsure, redirect the candidate to HR for more details.
+Evaluate the pronunciation and fluency of the following spoken sentence in {{type}}:  
+ 
+Provide constructive feedback, highlighting specific pronunciation mistakes if any, and suggest how to improve.
+If pronunciation is perfect, respond with "Excellent pronunciation!"
 
-Conclude the interview properly:
-Thank the candidate for their time.
-Inform them that the company will reach out soon with feedback.
+Analyze the  spoken sentence in {{type}} and correct any major grammatical errors:  
+  
+Explain the correction in simple and easy-to-understand terms for a language learner.
+If the sentence is grammatically correct, respond with "No correction needed."
+
+
+
+
+Conclude the conversation properly:
+Thank the user for their time.
 End the conversation on a polite and positive note.
 
 
@@ -159,27 +173,27 @@ export const feedbackSchema = z.object({
   totalScore: z.number(),
   categoryScores: z.tuple([
     z.object({
-      name: z.literal("Communication Skills"),
+      name: z.literal("Pronunciation_Fluency"),
       score: z.number(),
       comment: z.string(),
     }),
     z.object({
-      name: z.literal("Technical Knowledge"),
+      name: z.literal("Grammar_Sentence_Structure"),
       score: z.number(),
       comment: z.string(),
     }),
     z.object({
-      name: z.literal("Problem Solving"),
+      name: z.literal("Vocabulary_Word_Choice"),
       score: z.number(),
       comment: z.string(),
     }),
     z.object({
-      name: z.literal("Cultural Fit"),
+      name: z.literal("Coherence_Organization"),
       score: z.number(),
       comment: z.string(),
     }),
     z.object({
-      name: z.literal("Confidence and Clarity"),
+      name: z.literal("Confidence_Engagement"),
       score: z.number(),
       comment: z.string(),
     }),
