@@ -95,7 +95,7 @@ export async function getFeedbackByInterviewId(
   const feedbackDoc = querySnapshot.docs[0];
   return { id: feedbackDoc.id, ...feedbackDoc.data() } as Feedback;
 }
-
+// kire mia ki kororro shera kaj ena
 export async function getLatestInterviews(
   params: GetLatestInterviewsParams
 ): Promise<Interview[] | null> {
