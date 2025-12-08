@@ -18,6 +18,10 @@ interface SavedMessage {
   role: "user" | "system" | "assistant";
   content: string;
 }
+//ki shomossha tomar
+
+//kichu bolba
+
 
 const Agent = ({ userName, userId, type, interviewId, questions }: AgentProps) => {
   const router = useRouter();

@@ -15,3 +15,17 @@ export default AuthLayout
 //hello 
 
 //ami kichu kori nai shob ai korse
+
+
+
+
+
+
+
+
+
+
+
+//ko to gula code kortesi sa na
+
+// ki shuru korse shobai
