@@ -13,3 +13,5 @@ const AuthLayout =async ({children} :{children:ReactNode}) => {
 }
 export default AuthLayout
 //hello 
+
+//ami kichu kori nai shob ai korse
