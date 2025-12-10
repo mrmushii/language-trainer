@@ -26,6 +26,9 @@ const HomePage = async () => {
 
     return (
         <>
+            <div className={"bg-blue-50 text-blue-900 p-4 rounded-md shadow-sm text-center font-medium"}>
+                hellow world this is a test
+            </div>
             <section className={'card-cta'}>
                 <div className={'flex flex-col gap-6 max-w-lg'}>
                     <h2>Get Interview-Ready with AI-Powered Practice & Feedback</h2>
